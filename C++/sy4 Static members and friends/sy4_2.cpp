@@ -1,7 +1,8 @@
 #include<iostream>
 #include<cmath>
 using namespace std;
-class My {
+class My 
+{
 public:
 	My(double i = 0) { x = y = i; }
 	My(double i, double j) { x = i; y = j; }
@@ -10,12 +11,14 @@ public:
 private:
 	double x, y;
 };
-double dist(My& a, My& b) {
+double dist(My& a, My& b) 
+{
 	double dx = a.x - b.x;
 	double dy = a.y - b.y;
 	return sqrt(dx * dx + dy * dy);
 }
-int main() {
+int main() 
+{
 	My m1, m2(15), m3(13, 14);
 	My m4(m3);
 	cout << "The distance1:" << dist(m1, m3) << endl;

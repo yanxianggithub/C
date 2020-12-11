@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
-class Teacher{
+class Teacher
+{
     int Salary;
     
 };
@@ -19,7 +20,8 @@ class Teacher{
 
 
 
-int main(){
+int main()
+{
 
 
 

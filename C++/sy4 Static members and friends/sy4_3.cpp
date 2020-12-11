@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
-class Student {
+class Student 
+{
 private:
     float score = 0;
     static int count;
@@ -8,28 +9,33 @@ private:
 public:
     Student() {};
     ~Student() {};
-    void scoretotalcount(float s) {
+    void scoretotalcount(float s) 
+    {
         score = s;
         ++count;
         total += score;
     }
-    static float sum() {
+    static float sum() 
+    {
         return total;
     }
-    static float average() {
+    static float average()
+    {
         return total / count;
     }
 
 };
 int Student::count = 0;
 float Student::total = 0;
-int main() {
+int main()
+{
     float s;
     Student student;
 here:
     cout << "请输入班级同学的成绩：" << endl << "结束请输入: 0" << endl;
     cin >> s;
-    if (s != 0) {
+    if (s != 0)
+    {
         student.scoretotalcount(s);
         goto here;
     }

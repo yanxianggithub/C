@@ -2,16 +2,19 @@
 using namespace std;
 const float PI = 3.14f;
 class Shape {};
-class TwoDimShape :virtual public Shape {
+class TwoDimShape :virtual public Shape
+{
 public:
     virtual float area() = 0;
 };
-class ThreeDimShape :virtual public Shape {
+class ThreeDimShape :virtual public Shape
+{
 public:
     virtual float area() = 0;
     virtual float volume() = 0;
 };
-class Triangle : public TwoDimShape {
+class Triangle : public TwoDimShape
+{
     float base;
     float high;
 public:
@@ -19,14 +22,16 @@ public:
     Triangle(float b, float h) :base(b), high(h) {}
     float area() { return base * high / 2; }
 };
-class Circle :public TwoDimShape {
+class Circle :public TwoDimShape
+{
 protected:
     float R;
 public:
     Circle(float r) :R(r) {}
     float area() { return PI * R * R; }
 };
-class Rectangle :TwoDimShape {
+class Rectangle :TwoDimShape
+{
     float len;
     float wid;
 public:
@@ -34,7 +39,8 @@ public:
     Rectangle(float l, float w) :len(l), wid(w) {}
     float area() { return len * wid; }
 };
-class Cube : public ThreeDimShape {
+class Cube : public ThreeDimShape
+{
     float side;
 public:
     Cube() :side(0) {}
@@ -42,7 +48,8 @@ public:
     float area() { return 6 * side * side; }
     float volume() { return side * side * side; }
 };
-class Globe :ThreeDimShape {
+class Globe :ThreeDimShape
+{
     float R;
 public:
     Globe() :R(0) {}
@@ -50,7 +57,8 @@ public:
     float area() { return 4 * PI * R * R; }
     float volume() { return PI * R * R * R * 4 / 3; }
 };
-int main() {
+int main()
+{
     Triangle T(7, 8);
     Circle C1(6);
     Rectangle R(1, 2);

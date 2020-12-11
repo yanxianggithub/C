@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
-class student {
+class student
+{
 public:
     void scoretotalcount(double s){ score = s; total = total + score; count++;}
     static double sum() { return total; }
@@ -12,13 +13,15 @@ private:
 };
 double student::total = 0;
 double student::count = 0;
-int main() {
+int main()
+{
     int i, n;
     double s;
     cout << "请输入学生人数：";
     cin >> n;
     student stu;
-    for (i = 1; i <= n; i++) {
+    for (i = 1; i <= n; i++)
+    {
         cout << "请输入第" << i << "个学生的分数：";
         cin >> s;
         stu.scoretotalcount(s);
