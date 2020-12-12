@@ -52,13 +52,16 @@ void add_sec(struct Time *tt)
         tt->minute++;
         tt->second=0;
         if(tt->minute>=60)
-        {
+        {            
             tt->minute=0;
             tt->hour++;
             if(tt->hour>=12)
             {
                 tt->hour=0;
             }
+
         }
+
     }
+
 }
