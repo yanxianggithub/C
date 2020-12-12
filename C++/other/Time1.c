@@ -1,44 +1,64 @@
-#include<Windows.h>
 #include<stdio.h>
 #include<time.h>
-int hour,minute,second,day=0;
-void add()
+#include<Windows.h>
+struct Time
 {
-    if(second==60)
-    {
-        second=0;
-        minute++;
-    }
-    if(minute==60)
-    {
-        minute=0;
-        hour++;
-    }
-    if(hour==24)
-    {
-        hour==0;
-        day++;
-        exit(0);
-    }
-}
-
-void display()
-{
-    printf("%d:%d:%d",t->tm_hour+8,t->tm_min,t->tm_sec);
-}
-
+    int hour;
+    int minute;
+    int second;
+}tt;
+void set_time(struct Time *tt);
+void get_time(struct Time *tt);
+void add_sec(struct Time *tt);
 int main()
 {
-    time_t ttime;
-    struct tm *t;
-    time(&ttime);
-    t=localtime(&ttime);
+    set_time(&tt);
     while (1)
     {
-        add();
-        display(t);
+        get_time(&tt);
+        add_sec(&tt);
         Sleep(1000);
         system("cls");
     }
     return 0;
+}
+void set_time(struct Time *tt)
+//设置时间
+/* {
+    printf("请输入h，m，s（用空格隔开）：");
+    scanf("%d %d %d",&tt->hour,&tt->minute,&tt->second);
+} */
+//获取本地时间
+{
+    time_t t;
+    struct tm tmm;
+    t=time(NULL);
+    localtime_s(&tmm,&t);
+    tt->hour=tmm.tm_hour;
+    tt->minute=tmm.tm_min;
+    tt->second=tmm.tm_sec;
+}
+
+void get_time(struct Time *tt)
+{
+    printf("%d:%d:%d",tt->hour,tt->minute,tt->second);
+}
+
+void add_sec(struct Time *tt)
+{
+    tt->second++;
+    if(tt->second>=60)
+    {
+        tt->minute++;
+        tt->second=0;
+        if(tt->minute>=60)
+        {
+            tt->minute=0;
+            tt->hour++;
+            if(tt->hour>=12)
+            {
+                tt->hour=0;
+            }
+        }
+    }
 }
